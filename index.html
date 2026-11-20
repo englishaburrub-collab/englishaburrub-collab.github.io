@@ -1,15 +1,1244 @@
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Professional profile of Yaser Abualrob, Senior Full Stack Developer, Software Engineer and Database Administrator.">
+  <title>Yaser Abualrob | Professional Profile</title>
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f2f5f9;
+      --theme-on-surface: 23 38 58;
+      --theme-primary: 26 82 145;
+      --theme-surface: 255 255 255;
+      --theme-background: 250 252 255;
+    }
+    .resume-page { margin: auto; }
+    nav a:focus-visible { outline: 2px solid #1a5291; outline-offset: 4px; }
+    .check { color: #1a5291; font-weight: bold; }
+
+    .resume-page {
+      --resume-ink: rgb(var(--theme-on-surface));
+      --resume-muted: rgb(var(--theme-on-surface) / 66%);
+      --resume-faint: rgb(var(--theme-on-surface) / 48%);
+      --resume-line: rgb(var(--theme-on-surface) / 10%);
+      --resume-tint: rgb(var(--theme-primary) / 6%);
+      max-width: 1240px;
+      padding: clamp(18px, 3vw, 40px) clamp(14px, 4vw, 48px) 32px;
+      color: var(--resume-ink);
+    }
+
+    .resume-hero {
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 28px;
+      overflow: hidden;
+      padding: clamp(28px, 5vw, 56px);
+      border: 1px solid var(--resume-line);
+      border-radius: 18px;
+      background:
+        radial-gradient(ellipse at 86% 4%, rgb(var(--theme-primary) / 13%), transparent 38%),
+        rgb(var(--theme-surface));
+    }
+    .hero-copy,
+    .hero-aside {
+      position: relative;
+      z-index: 1;
+    }
+    .hero-copy { min-width: 0; }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 16px;
+      color: rgb(var(--theme-primary));
+      font-size: 11px;
+      font-weight: 750;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .eyebrow-mark {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: rgb(var(--theme-primary));
+      box-shadow: 0 0 0 4px rgb(var(--theme-primary) / 12%);
+    }
+    .resume-hero h1 {
+      margin: 0;
+      color: var(--resume-ink);
+      font-size: clamp(34px, 5vw, 56px);
+      font-weight: 680;
+      letter-spacing: -0.055em;
+      line-height: 1.06;
+    }
+    .role-line {
+      margin: 14px 0 19px;
+      color: var(--resume-muted);
+      font-size: clamp(15px, 2vw, 18px);
+      font-weight: 500;
+      line-height: 1.6;
+    }
+    .contact-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 22px;
+    }
+    .contact-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: var(--resume-muted);
+      font-size: 13px;
+      text-decoration: none;
+    }
+    .linkedin-link {
+      border-radius: 3px;
+      color: rgb(var(--theme-primary));
+      font-weight: 600;
+      text-decoration: underline;
+      text-decoration-color: transparent;
+      text-underline-offset: 3px;
+      transition: text-decoration-color 140ms ease;
+    }
+    .linkedin-link:hover { text-decoration-color: currentColor; }
+    .linkedin-link:focus-visible,
+    .resume-footer a:focus-visible {
+      outline: 2px solid rgb(var(--theme-primary));
+      outline-offset: 4px;
+    }
+
+    .hero-aside {
+      display: grid;
+      flex: 0 0 auto;
+      justify-items: end;
+    }
+    .experience-mark {
+      display: grid;
+      justify-items: end;
+      gap: 2px;
+    }
+    .experience-mark strong {
+      color: rgb(var(--theme-primary));
+      font-size: 34px;
+      font-weight: 700;
+      letter-spacing: -0.06em;
+      line-height: 1;
+    }
+    .experience-mark span {
+      color: var(--resume-muted);
+      font-size: 11px;
+      white-space: nowrap;
+    }
+    .hero-decoration {
+      position: absolute;
+      inset-block: auto -110px;
+      inset-inline-end: 8%;
+      width: 260px;
+      height: 260px;
+      border: 1px solid rgb(var(--theme-primary) / 8%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero-decoration::before,
+    .hero-decoration::after {
+      position: absolute;
+      inset: 20px;
+      border: 1px solid rgb(var(--theme-primary) / 7%);
+      border-radius: inherit;
+      content: "";
+    }
+    .hero-decoration::after { inset: 42px; }
+
+    .resume-content {
+      display: grid;
+      gap: 0;
+      margin-top: 20px;
+      border: 1px solid var(--resume-line);
+      border-radius: 16px;
+      background: rgb(var(--theme-surface));
+    }
+    .resume-section {
+      min-width: 0;
+      padding: clamp(24px, 4vw, 42px);
+      border-bottom: 1px solid var(--resume-line);
+      scroll-margin-top: calc(var(--nav-height, 64px) + 12px);
+    }
+    .resume-section:last-child { border-bottom: 0; }
+
+    .section-heading {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      margin-bottom: 24px;
+    }
+    .section-index {
+      display: grid;
+      flex: 0 0 34px;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      border: 1px solid rgb(var(--theme-primary) / 16%);
+      border-radius: 9px;
+      background: var(--resume-tint);
+      color: rgb(var(--theme-primary));
+      font-size: 11px;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+    }
+    .section-kicker {
+      margin: 0 0 3px;
+      color: var(--resume-faint);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .section-heading h2 {
+      margin: 0;
+      color: var(--resume-ink);
+      font-size: clamp(20px, 2.4vw, 25px);
+      font-weight: 650;
+      letter-spacing: -0.035em;
+      line-height: 1.25;
+    }
+
+    .summary-copy {
+      display: grid;
+      gap: 12px;
+      max-width: 950px;
+      padding-inline-start: 49px;
+    }
+    .summary-copy p {
+      margin: 0;
+      color: var(--resume-muted);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      padding-inline-start: 49px;
+    }
+    .skill-group {
+      min-width: 0;
+      padding: 18px 19px;
+      border: 1px solid var(--resume-line);
+      border-radius: 11px;
+      background: rgb(var(--theme-background));
+      transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+    }
+    .skill-group:hover,
+    .project-card:hover {
+      border-color: rgb(var(--theme-primary) / 24%);
+      box-shadow: 0 7px 20px rgb(var(--theme-on-surface) / 5%);
+      transform: translateY(-1px);
+    }
+    .skill-group--wide { grid-column: 1 / -1; }
+    .skill-list--columns {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 7px 24px;
+    }
+    .skill-group h3 {
+      margin: 0 0 12px;
+      color: var(--resume-ink);
+      font-size: 14px;
+      font-weight: 650;
+    }
+    .skill-list,
+    .detail-list {
+      display: grid;
+      gap: 7px;
+      margin: 0;
+      padding-inline-start: 17px;
+      color: var(--resume-muted);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+    .skill-list li::marker,
+    .detail-list li::marker,
+    .course-list li::marker {
+      color: rgb(var(--theme-primary) / 72%);
+    }
+
+    .experience-list {
+      display: grid;
+      padding-inline-start: 14px;
+    }
+    .experience-item {
+      display: grid;
+      grid-template-columns: 19px minmax(0, 1fr);
+      gap: 16px;
+    }
+    .timeline-rail {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+    .timeline-dot {
+      z-index: 1;
+      width: 11px;
+      height: 11px;
+      margin-top: 5px;
+      border: 2px solid rgb(var(--theme-primary));
+      border-radius: 50%;
+      background: rgb(var(--theme-surface));
+      box-shadow: 0 0 0 4px rgb(var(--theme-primary) / 10%);
+    }
+    .timeline-line {
+      position: absolute;
+      inset-block: 20px -4px;
+      width: 1px;
+      background: var(--resume-line);
+    }
+    .experience-body {
+      min-width: 0;
+      padding: 0 0 30px;
+    }
+    .experience-item:last-child .experience-body { padding-bottom: 0; }
+  .experience-topline,
+    .education-heading {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .experience-topline h3,
+    .education-heading h3 {
+      margin: 0;
+      color: var(--resume-ink);
+      font-size: 16px;
+      font-weight: 650;
+      line-height: 1.4;
+    }
+    .organization {
+      margin-top: 4px;
+      color: rgb(var(--theme-primary));
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .date-pill {
+      display: inline-flex;
+      flex: 0 0 auto;
+      align-items: center;
+      min-height: 26px;
+      padding: 4px 9px;
+      border: 1px solid var(--resume-line);
+      border-radius: 6px;
+      background: rgb(var(--theme-on-surface) / 3%);
+      color: var(--resume-muted);
+      font-size: 11px;
+      font-weight: 600;
+      line-height: 1.3;
+      white-space: nowrap;
+    }
+    .job-location {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 8px;
+      color: var(--resume-faint);
+      font-size: 12px;
+    }
+    .detail-list {
+      gap: 6px;
+      margin-top: 12px;
+      padding-inline-start: 18px;
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    .education-list {
+      display: grid;
+      gap: 0;
+      padding-inline-start: 49px;
+    }
+    .education-item {
+      display: grid;
+      grid-template-columns: 38px minmax(0, 1fr);
+      gap: 14px;
+      padding: 17px 0;
+      border-top: 1px solid var(--resume-line);
+    }
+    .education-item:first-child {
+      padding-top: 0;
+      border-top: 0;
+    }
+    .education-icon {
+      display: grid;
+      place-items: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: var(--resume-tint);
+      color: rgb(var(--theme-primary));
+      font-size: 14px;
+    }
+    .education-heading h3 { font-size: 14px; }
+    .institution {
+      margin: 5px 0 0;
+      color: var(--resume-muted);
+      font-size: 13px;
+    }
+    .coursework { margin-top: 12px; }
+    .coursework-label {
+      color: var(--resume-faint);
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .course-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 22px;
+      margin: 8px 0 0;
+      padding-inline-start: 17px;
+      color: var(--resume-muted);
+      font-size: 12px;
+    }
+
+    .project-groups {
+      display: grid;
+      gap: 26px;
+      padding-inline-start: 49px;
+    }
+    .project-category {
+      margin: 0 0 12px;
+      color: var(--resume-muted);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .project-card {
+      min-width: 0;
+      padding: 16px 17px;
+      border: 1px solid var(--resume-line);
+      border-radius: 10px;
+      background: rgb(var(--theme-background));
+      transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+    }
+    .project-card h4 {
+      margin: 0;
+      color: var(--resume-ink);
+      font-size: 13px;
+      font-weight: 650;
+      line-height: 1.45;
+    }
+    .project-card .detail-list {
+      gap: 4px;
+      margin-top: 8px;
+      font-size: 12px;
+    }
+
+    .training-list {
+      display: grid;
+      padding-inline-start: 49px;
+    }
+    .training-item {
+      display: grid;
+      grid-template-columns: 32px minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 12px;
+      padding: 13px 0;
+      border-top: 1px solid var(--resume-line);
+    }
+    .training-item:first-child {
+      padding-top: 0;
+      border-top: 0;
+    }
+    .training-icon {
+      display: grid;
+      place-items: center;
+      width: 31px;
+      height: 31px;
+      border-radius: 8px;
+      background: var(--resume-tint);
+      color: rgb(var(--theme-primary));
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .training-copy { min-width: 0; }
+    .training-copy h3 {
+      margin: 0;
+      color: var(--resume-ink);
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.5;
+    }
+    .training-copy p {
+      margin: 3px 0 0;
+      color: var(--resume-muted);
+      font-size: 12px;
+    }
+    .training-date {
+      color: var(--resume-muted);
+      font-size: 12px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .strengths-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px 24px;
+      margin: 0;
+      padding: 0 0 0 49px;
+      list-style: none;
+    }
+    .strengths-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      color: var(--resume-muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .strengths-list .check {
+      flex: 0 0 auto;
+      margin-top: 2px;
+    }
+
+    .resume-footer {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px 18px;
+      padding: 18px 4px 0;
+      color: var(--resume-faint);
+      font-size: 11px;
+    }
+    .resume-footer a {
+      color: rgb(var(--theme-primary));
+      text-decoration: none;
+    }
+    .resume-footer a:hover {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .resume-page > nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      gap: 6px;
+      margin-top: 16px;
+      padding: 8px;
+      overflow-x: auto;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(14px);
+      border: 1px solid var(--resume-line);
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(23, 38, 58, 0.08);
+      scrollbar-width: thin;
+    }
+    .resume-page > nav a {
+      flex: 0 0 auto;
+      padding: 10px 14px;
+      border-radius: 7px;
+      color: #1a5291;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.15s, color 0.15s;
+    }
+    .resume-page > nav a:hover,
+    .resume-page > nav a[aria-current="location"] {
+      background: var(--resume-tint);
+      color: rgb(var(--theme-primary));
+      text-decoration: none;
+    }
+    .resume-page > nav a[aria-current="location"] {
+      box-shadow: inset 0 -2px rgb(var(--theme-primary));
+    }
+
+    @media (max-width: 850px) {
+      .resume-hero {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+      .hero-aside {
+        justify-items: start;
+      }
+      .experience-mark {
+        justify-items: start;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .resume-page { padding-inline: 12px; }
+      .resume-hero {
+        gap: 24px;
+        padding: 26px 22px;
+        border-radius: 14px;
+      }
+      .resume-content {
+        margin-top: 12px;
+        border-radius: 13px;
+      }
+      .resume-section { padding: 24px 18px; }
+      .section-heading {
+        gap: 12px;
+        margin-bottom: 18px;
+      }
+      .section-index {
+        flex-basis: 30px;
+        width: 30px;
+        height: 30px;
+      }
+      .summary-copy,
+      .skills-grid,
+      .education-list,
+      .project-groups,
+      .training-list,
+      .strengths-list {
+        padding-inline-start: 0;
+      }
+      .skills-grid,
+      .projects-grid,
+      .strengths-list {
+        grid-template-columns: 1fr;
+      }
+      .skill-list--columns {
+        grid-template-columns: 1fr;
+      }
+      .experience-list { padding-inline-start: 0; }
+      .experience-item {
+        grid-template-columns: 16px minmax(0, 1fr);
+        gap: 11px;
+      }
+      .experience-topline,
+      .education-heading {
+        flex-direction: column;
+        gap: 8px;
+      }
+      .date-pill { white-space: normal; }
+      .training-item {
+        grid-template-columns: 32px minmax(0, 1fr);
+        gap: 10px;
+      }
+      .training-date {
+        grid-column: 2;
+        margin-top: -5px;
+      }
+      .resume-footer { justify-content: flex-start; }
+      .resume-page > nav {
+        margin-top: 12px;
+        padding: 5px;
+      }
+      .resume-page > nav a { padding: 9px 11px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    @media print {
+      @page { size: A4; margin: 14mm; }
+      body { background: white; }
+      .resume-page {
+        max-width: none;
+        padding: 0;
+        color: #17212f;
+      }
+      .resume-page > nav { display: none !important; }
+      .resume-hero,
+      .resume-content,
+      .skill-group,
+      .project-card {
+        border-color: #d3d8df;
+        background: #fff;
+        box-shadow: none;
+      }
+      .hero-decoration,
+      .hero-aside { display: none !important; }
+      .resume-content,
+      .resume-hero { border: 0; }
+      .resume-hero { padding: 0; }
+      .resume-content { margin-top: 12px; }
+      .resume-section {
+        padding: 14px 0;
+        break-inside: auto;
+      }
+      .section-heading { break-after: avoid; }
+      .experience-item,
+      .education-item,
+      .project-card,
+      .training-item,
+      .skill-group {
+        break-inside: avoid;
+      }
+      .summary-copy,
+      .skills-grid,
+      .education-list,
+      .project-groups,
+      .training-list,
+      .strengths-list,
+      .experience-list {
+        padding-inline-start: 0;
+      }
+      .resume-footer {
+        padding-top: 8px;
+      }
+      .resume-footer a { color: inherit; }
+    }
+  </style>
 </head>
-
 <body>
-    <h1>Yaser Aburrub Resume</h1>
-    <h2>to be written ...</h2>
-</body>
+  <div class="resume-page">
+    <header class="resume-hero">
+      <div class="hero-copy">
+        <div class="eyebrow">
+          <span class="eyebrow-mark" aria-hidden="true"></span>
+          Professional profile
+        </div>
+        <h1>Yaser Abualrob</h1>
+        <p class="role-line">Senior Full Stack Developer · Software Engineer · Database Administrator</p>
+        <div class="contact-line">
+          <span class="contact-item">Ramallah, Palestine</span>
+          <a class="contact-item linkedin-link" href="https://www.linkedin.com/in/yabualrob" rel="noopener noreferrer" target="_blank">LinkedIn profile ↗</a>
+        </div>
+      </div>
+      <aside class="hero-aside">
+        <div class="experience-mark">
+          <strong>18+</strong>
+          <span>years of experience</span>
+        </div>
+      </aside>
+      <div class="hero-decoration" aria-hidden="true"></div>
+    </header>
 
+    <nav aria-label="Resume sections">
+      <a href="#summary">Summary</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#projects">Projects</a>
+      <a href="#training">Training</a>
+      <a href="#strengths">Strengths</a>
+    </nav>
+
+    <main class="resume-content">
+      <section class="resume-section" id="summary">
+        <div class="section-heading">
+          <span class="section-index">01</span>
+          <div>
+            <p class="section-kicker">Overview</p>
+            <h2>Professional summary</h2>
+          </div>
+        </div>
+        <div class="summary-copy">
+          <p>Experienced Full Stack Developer and Software Engineer with over 18 years of professional experience in software development, database administration, enterprise application development, and business process automation.</p>
+          <p>Specialized in C# .NET, modern web technologies, Microsoft SQL Server, and user interface development, with extensive experience designing, developing, implementing, and maintaining business-critical applications.</p>
+          <p>Proven track record of delivering software solutions for international organizations, including EUPOL COPPS and UNRWA. Skilled in requirements analysis, database optimization, systems integration, financial application development, technical documentation, and cross-functional collaboration.</p>
+          <p>Strong ability to transform complex organizational requirements into reliable, efficient, scalable, and user-friendly software solutions.</p>
+        </div>
+      </section>
+
+      <section class="resume-section" id="skills">
+        <div class="section-heading">
+          <span class="section-index">02</span>
+          <div>
+            <p class="section-kicker">Expertise</p>
+            <h2>Technical skills</h2>
+          </div>
+        </div>
+        <div class="skills-grid">
+          <article class="skill-group">
+            <h3>Backend development</h3>
+            <ul class="skill-list">
+              <li>C# and Microsoft .NET Framework</li>
+              <li>Object-Oriented Programming (OOP)</li>
+              <li>PHP</li>
+              <li>Grails</li>
+              <li>Application architecture and business logic development</li>
+            </ul>
+          </article>
+          <article class="skill-group">
+            <h3>Frontend development</h3>
+            <ul class="skill-list">
+              <li>HTML5 and CSS3</li>
+              <li>JavaScript</li>
+              <li>Angular</li>
+              <li>Vue.js</li>
+              <li>User interface development</li>
+            </ul>
+          </article>
+          <article class="skill-group">
+            <h3>Databases</h3>
+            <ul class="skill-list">
+              <li>Microsoft SQL Server</li>
+              <li>Transact-SQL (T-SQL)</li>
+              <li>MySQL</li>
+              <li>Database administration</li>
+              <li>Performance tuning and optimization</li>
+              <li>Database design and reporting</li>
+            </ul>
+          </article>
+          <article class="skill-group">
+            <h3>Tools and technologies</h3>
+            <ul class="skill-list">
+              <li>Git</li>
+              <li>JIRA</li>
+              <li>Microsoft Visio</li>
+              <li>Joomla</li>
+              <li>Flutter (professional training)</li>
+              <li>XML and XSD</li>
+            </ul>
+          </article>
+          <article class="skill-group skill-group--wide">
+            <h3>Professional competencies</h3>
+            <ul class="skill-list skill-list--columns">
+              <li>Full Stack Software Development</li>
+              <li>Enterprise Application Development</li>
+              <li>Business Process Automation</li>
+              <li>Requirements Analysis</li>
+              <li>Software Testing and Debugging</li>
+              <li>Systems Integration</li>
+              <li>IT Operations</li>
+              <li>Technical Writing and Documentation</li>
+              <li>Video Production and Training Materials</li>
+              <li>Cross-Functional Collaboration</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="resume-section" id="experience">
+        <div class="section-heading">
+          <span class="section-index">03</span>
+          <div>
+            <p class="section-kicker">Career</p>
+            <h2>Professional experience</h2>
+          </div>
+        </div>
+        <div class="experience-list">
+          <article class="experience-item">
+            <div class="timeline-rail">
+              <span class="timeline-dot"></span>
+              <span class="timeline-line"></span>
+            </div>
+            <div class="experience-body">
+              <div class="experience-topline">
+                <div>
+                  <h3>Programmer / Database Administrator</h3>
+                  <div class="organization">EUPOL COPPS</div>
+                </div>
+                <span class="date-pill">September 2016 – Present</span>
+              </div>
+              <div class="job-location">Ramallah, Palestine</div>
+              <ul class="detail-list">
+                <li>Design, develop, implement, and maintain mission-critical internal software applications supporting organizational operations.</li>
+                <li>Manage and enhance the HR employee information database, supporting data accuracy, consistency, and integration with organizational workflows.</li>
+                <li>Design and administer telecommunications billing applications, automating invoicing processes and reducing repetitive administrative tasks.</li>
+                <li>Maintain and improve the Journey Management Request System to support efficient travel and mobility coordination.</li>
+                <li>Support and optimize transportation management applications to ensure reliability, usability, and alignment with organizational requirements.</li>
+                <li>Automate business processes to reduce manual workloads and improve operational efficiency.</li>
+                <li>Perform database maintenance, optimization, and application troubleshooting.</li>
+                <li>Collaborate with multidisciplinary teams to identify business requirements and deliver appropriate technical solutions.</li>
+                <li>Develop technical documentation, instructional materials, and training videos to support knowledge transfer.</li>
+                <li>Continuously improve existing systems, focusing on performance, usability, reliability, and maintainability.</li>
+              </ul>
+            </div>
+          </article>
+          <article class="experience-item">
+            <div class="timeline-rail">
+              <span class="timeline-dot"></span>
+              <span class="timeline-line"></span>
+            </div>
+            <div class="experience-body">
+              <div class="experience-topline">
+                <div>
+                  <h3>Analyst Programmer</h3>
+                  <div class="organization">United Nations Relief and Works Agency (UNRWA)</div>
+                </div>
+                <span class="date-pill">February 2012 – August 2016</span>
+              </div>
+              <div class="job-location">Jerusalem Field Office</div>
+              <ul class="detail-list">
+                <li>Designed, developed, and maintained software applications supporting organizational billing, invoicing, and financial operations.</li>
+                <li>Led the development of systems for managing cellular, landline, electricity, water, and other recurring service invoices.</li>
+                <li>Gathered requirements from stakeholders and translated business processes into functional software specifications.</li>
+                <li>Automated invoice processing, approval workflows, tracking, and reporting to improve accuracy and efficiency.</li>
+                <li>Developed applications for monitoring operational expenses and supporting financial reconciliation.</li>
+                <li>Supported billing operations, expense reporting, and recurring financial close processes.</li>
+                <li>Designed database-driven reporting solutions to facilitate financial monitoring and informed decision-making.</li>
+                <li>Collaborated with financial, administrative, and technical teams to align software functionality with organizational requirements.</li>
+                <li>Maintained and enhanced existing applications to support evolving operational needs.</li>
+              </ul>
+            </div>
+          </article>
+          <article class="experience-item">
+            <div class="timeline-rail">
+              <span class="timeline-dot"></span>
+              <span class="timeline-line"></span>
+            </div>
+            <div class="experience-body">
+              <div class="experience-topline">
+                <div>
+                  <h3>Software Engineer</h3>
+                  <div class="organization">Ministry of Planning and Administrative Development</div>
+                </div>
+                <span class="date-pill">January 2011 – February 2012</span>
+              </div>
+              <div class="job-location">Ramallah, Palestine</div>
+              <ul class="detail-list">
+                <li>Developed a Human Resources Management System using Grails.</li>
+                <li>Designed and implemented the ministry's official website using PHP, MySQL, and Joomla.</li>
+                <li>Supported HR-related processes, including recruitment, employee administration, and performance-related workflows.</li>
+                <li>Developed reports and software functionality to support administrative decision-making.</li>
+                <li>Conducted requirements analysis and provided technical advice on system improvements.</li>
+                <li>Collaborated with organizational stakeholders to improve business processes and technology adoption.</li>
+                <li>Provided technical guidance and support to less experienced personnel.</li>
+              </ul>
+            </div>
+          </article>
+          <article class="experience-item">
+            <div class="timeline-rail">
+              <span class="timeline-dot"></span>
+              <span class="timeline-line"></span>
+            </div>
+            <div class="experience-body">
+              <div class="experience-topline">
+                <div>
+                  <h3>.NET Developer</h3>
+                  <div class="organization">Clepsta Technologies</div>
+                </div>
+                <span class="date-pill">September 2009 – December 2010</span>
+              </div>
+              <ul class="detail-list">
+                <li>Developed and maintained SafeLook filtering and parental control software solutions.</li>
+                <li>Implemented application functionality using Microsoft .NET technologies.</li>
+                <li>Participated in system architecture, software design, implementation, and debugging.</li>
+                <li>Created functional and technical design specifications.</li>
+                <li>Developed and executed unit tests to verify software quality.</li>
+                <li>Collaborated with client development teams to support server-client integration.</li>
+                <li>Contributed to software project planning, effort estimation, and technical delivery.</li>
+                <li>Researched emerging technologies and evaluated potential improvements to existing products.</li>
+              </ul>
+            </div>
+          </article>
+          <article class="experience-item">
+            <div class="timeline-rail">
+              <span class="timeline-dot"></span>
+            </div>
+            <div class="experience-body">
+              <div class="experience-topline">
+                <div>
+                  <h3>Frontend Developer</h3>
+                  <div class="organization">Global Software Services Inc.</div>
+                </div>
+                <span class="date-pill">February 2008 – August 2009</span>
+              </div>
+              <ul class="detail-list">
+                <li>Worked as a member of the PDCV software development team.</li>
+                <li>Contributed to frontend application development and user interface implementation.</li>
+                <li>Applied HTML, CSS, and object-oriented development principles in software projects.</li>
+                <li>Collaborated with development team members on application delivery.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="resume-section" id="education">
+        <div class="section-heading">
+          <span class="section-index">04</span>
+          <div>
+            <p class="section-kicker">Academic background</p>
+            <h2>Education</h2>
+          </div>
+        </div>
+        <div class="education-list">
+          <article class="education-item">
+            <div class="education-icon" aria-hidden="true">◆</div>
+            <div>
+              <div class="education-heading">
+                <h3>Master of Arts (MA) in Computing</h3>
+                <span class="date-pill">2009 – 2011</span>
+              </div>
+              <p class="institution">Birzeit University · Palestine</p>
+              <div class="coursework">
+                <span class="coursework-label">Relevant coursework</span>
+                <ul class="course-list">
+                  <li>Advanced Artificial Intelligence</li>
+                  <li>Advanced Database Management Systems</li>
+                  <li>Distributed Systems</li>
+                  <li>Knowledge Engineering</li>
+                  <li>Green Computing</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+          <article class="education-item">
+            <div class="education-icon" aria-hidden="true">◆</div>
+            <div>
+              <div class="education-heading">
+                <h3>Bachelor of Arts (BA) in Computer Science</h3>
+                <span class="date-pill">2004 – 2008</span>
+              </div>
+              <p class="institution">Birzeit University · Palestine</p>
+            </div>
+          </article>
+          <article class="education-item">
+            <div class="education-icon" aria-hidden="true">◆</div>
+            <div>
+              <div class="education-heading">
+                <h3>Scientific Secondary Education (Tawjihi)</h3>
+                <span class="date-pill">2003</span>
+              </div>
+              <p class="institution">Betunia School · Palestine</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="resume-section" id="projects">
+        <div class="section-heading">
+          <span class="section-index">05</span>
+          <div>
+            <p class="section-kicker">Selected work</p>
+            <h2>Projects</h2>
+          </div>
+        </div>
+        <div class="project-groups">
+          <div class="project-group">
+            <h3 class="project-category">Enterprise applications</h3>
+            <div class="projects-grid">
+              <article class="project-card">
+                <h4>EUPOL COPPS – Internal Management Systems</h4>
+                <ul class="detail-list">
+                  <li>Developed and maintained enterprise applications supporting HR administration, telecommunications billing, journey management, and transportation operations.</li>
+                  <li>Improved internal workflows through application development, database maintenance, and automation.</li>
+                </ul>
+              </article>
+              <article class="project-card">
+                <h4>UNRWA Messaging System</h4>
+                <ul class="detail-list">
+                  <li>Developed a dynamic email messaging application supporting individual and group communications.</li>
+                  <li>Implemented predefined email templates with dynamic variables populated from database records.</li>
+                </ul>
+              </article>
+              <article class="project-card">
+                <h4>UNRWA Mental Health Management System</h4>
+                <ul class="detail-list">
+                  <li>Developed a system for managing and archiving mental health case records.</li>
+                  <li>Supported the organization and retrieval of case information.</li>
+                </ul>
+              </article>
+              <article class="project-card">
+                <h4>UNRWA Utilities Invoice Management System</h4>
+                <ul class="detail-list">
+                  <li>Developed an application for managing electricity, water, and lease-related invoices.</li>
+                  <li>Supported invoice tracking and archival processes.</li>
+                </ul>
+              </article>
+              <article class="project-card">
+                <h4>UNRWA Billing System</h4>
+                <ul class="detail-list">
+                  <li>Developed a system to manage and track employee mobile and landline billing records.</li>
+                  <li>Supported billing administration and recurring expense monitoring.</li>
+                </ul>
+              </article>
+              <article class="project-card">
+                <h4>Dynamic Report Generator</h4>
+                <ul class="detail-list">
+                  <li>Developed a database-driven reporting solution.</li>
+                  <li>Transformed relational database schemas into graph representations to support dynamic SQL query generation.</li>
+                </ul>
+              </article>
+            </div>
+          </div>
+          <div class="project-group">
+            <h3 class="project-category">Web and software projects</h3>
+            <div class="projects-grid">
+              <article class="project-card">
+                <h4>Ministry of Planning Official Website</h4>
+                <ul class="detail-list">
+                  <li>Developed the ministry's official website using PHP, MySQL, and Joomla.</li>
+                </ul>
+              </article>
+              <article class="project-card">
+                <h4>SubMerge 2.0</h4>
+                <ul class="detail-list">
+                  <li>Developed a subtitle-processing application supporting conversion into 17 output formats.</li>
+                  <li>Implemented functionality for merging multiple subtitle files.</li>
+                </ul>
+              </article>
+              <article class="project-card">
+                <h4>Islam Library Website</h4>
+                <ul class="detail-list">
+                  <li>Developed an online platform for browsing Islamic books.</li>
+                </ul>
+              </article>
+              <article class="project-card">
+                <h4>Spam Detection Application</h4>
+                <ul class="detail-list">
+                  <li>Developed an email text classification application.</li>
+                  <li>Implemented text preprocessing and spam/non-spam categorization.</li>
+                </ul>
+              </article>
+              <article class="project-card">
+                <h4>Microsoft Access to XML Converter</h4>
+                <ul class="detail-list">
+                  <li>Developed a solution for converting Microsoft Access relational databases into XML.</li>
+                  <li>Preserved relational constraints through XSD representations.</li>
+                </ul>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="resume-section" id="training">
+        <div class="section-heading">
+          <span class="section-index">06</span>
+          <div>
+            <p class="section-kicker">Continuous learning</p>
+            <h2>Professional training &amp; certifications</h2>
+          </div>
+        </div>
+        <div class="training-list">
+          <article class="training-item">
+            <div class="training-icon" aria-hidden="true">✓</div>
+            <div class="training-copy">
+              <h3>Flutter Application Development Training</h3>
+              <p>Koenig Solutions Pvt. Ltd. · Dubai, UAE</p>
+            </div>
+            <span class="training-date">June 2023</span>
+          </article>
+          <article class="training-item">
+            <div class="training-icon" aria-hidden="true">✓</div>
+            <div class="training-copy">
+              <h3>Cyber Security Awareness</h3>
+              <p>SANS Institute</p>
+            </div>
+            <span class="training-date">March 2022</span>
+          </article>
+          <article class="training-item">
+            <div class="training-icon" aria-hidden="true">✓</div>
+            <div class="training-copy">
+              <h3>SQL Server Performance Tuning and Optimization</h3>
+              <p>U2U Consult · Brussels, Belgium</p>
+            </div>
+            <span class="training-date">September 2017</span>
+          </article>
+          <article class="training-item">
+            <div class="training-icon" aria-hidden="true">✓</div>
+            <div class="training-copy">
+              <h3>Hostile Environment Awareness Training (HEAT)</h3>
+              <p>Fox Delta · Jericho, Palestine</p>
+            </div>
+            <span class="training-date">October 2016</span>
+          </article>
+          <article class="training-item">
+            <div class="training-icon" aria-hidden="true">✓</div>
+            <div class="training-copy">
+              <h3>Information Technology Infrastructure Library (ITIL) Training</h3>
+              <p>EXIN · Ramallah, Palestine</p>
+            </div>
+            <span class="training-date">August 2014</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="resume-section" id="strengths">
+        <div class="section-heading">
+          <span class="section-index">07</span>
+          <div>
+            <p class="section-kicker">Beyond the role</p>
+            <h2>Additional strengths</h2>
+          </div>
+        </div>
+        <ul class="strengths-list">
+          <li><span class="check" aria-hidden="true">✓</span><span>Extensive experience supporting international and governmental organizations.</span></li>
+          <li><span class="check" aria-hidden="true">✓</span><span>Strong background in enterprise software development and database administration.</span></li>
+          <li><span class="check" aria-hidden="true">✓</span><span>Ability to manage software throughout its complete development lifecycle.</span></li>
+          <li><span class="check" aria-hidden="true">✓</span><span>Experience translating operational challenges into automated technical solutions.</span></li>
+          <li><span class="check" aria-hidden="true">✓</span><span>Proven collaboration with administrative, financial, and technical stakeholders.</span></li>
+          <li><span class="check" aria-hidden="true">✓</span><span>Strong analytical, problem-solving, technical writing, and documentation skills.</span></li>
+          <li><span class="check" aria-hidden="true">✓</span><span>Experience producing technical instructional videos and training materials.</span></li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="resume-footer">
+      <span>Yaser Abualrob</span>
+      <span>Ramallah, Palestine</span>
+      <a href="https://www.linkedin.com/in/yabualrob">linkedin.com/in/yabualrob</a>
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      var nav = document.querySelector(".resume-page > nav");
+      if (!nav) return;
+      var links = Array.prototype.slice.call(nav.querySelectorAll('a[href^="#"]'));
+      var sections = links.map(function (link) {
+        return document.getElementById(link.hash.slice(1));
+      });
+
+      function update() {
+        var height = nav.offsetHeight;
+        document.documentElement.style.setProperty("--nav-height", height + "px");
+        var active = 0;
+        sections.forEach(function (section, i) {
+          if (section && section.getBoundingClientRect().top <= height + 24) active = i;
+        });
+        if (
+          window.scrollY > 0 &&
+          window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 3
+        ) {
+          active = links.length - 1;
+        }
+        links.forEach(function (link, i) {
+          if (i === active) link.setAttribute("aria-current", "location");
+          else link.removeAttribute("aria-current");
+        });
+      }
+
+      var pending = false;
+      window.addEventListener(
+        "scroll",
+        function () {
+          if (!pending) {
+            pending = true;
+            requestAnimationFrame(function () {
+              update();
+              pending = false;
+            });
+          }
+        },
+        { passive: true }
+      );
+      window.addEventListener("resize", update);
+      if ("ResizeObserver" in window) new ResizeObserver(update).observe(nav);
+      update();
+    })();
+  </script>
+</body>
 </html>
