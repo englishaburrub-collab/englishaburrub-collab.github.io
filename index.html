@@ -706,9 +706,33 @@
       }
       .resume-footer a { color: inherit; }
     }
+    .site-header { background: #f8f8f4; color: #1b2020; border-bottom: 1px solid #dce1da; line-height: 1.6; }
+    .site-header .header-inner { width: min(72rem, calc(100% - 2.5rem)); margin-inline: auto; display: flex; align-items: center; flex-wrap: wrap; justify-content: space-between; gap: .75rem 1.5rem; padding-block: 1rem; }
+    .site-header a { color: inherit; text-decoration: none; }
+    .site-header .wordmark { font-size: 1.05rem; font-weight: 750; }
+    .site-header .site-nav { display: flex; flex-wrap: wrap; gap: .25rem; }
+    .site-header .site-nav a { padding: .45rem .75rem; font-size: .9375rem; font-weight: 600; border-radius: .4rem; }
+    .site-header .site-nav a:hover { background: #e7ebe3; }
+    .site-header a:focus-visible { outline: 3px solid #98662e; outline-offset: 4px; }
+    @media (max-width: 31rem) {
+      .site-header .header-inner { gap: .45rem; }
+      .site-header .site-nav { margin-left: -.64rem; }
+      .site-header .site-nav a { padding-inline: .64rem; }
+    }
+    @media print { .site-header { display: none; } }
   </style>
 </head>
 <body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="wordmark" href="https://aburrub.github.io/" aria-current="page">Yaser Aburrub</a>
+      <nav class="site-nav" aria-label="Apps">
+        <a href="https://englishaburrub-collab.github.io/">Apps</a>
+        <a href="https://englishaburrub-collab.github.io/WalletTrackerPublic/">Wallet Tracker</a>
+        <a href="https://englishaburrub-collab.github.io/tasbeeh-public/">Tasbeeh</a>
+      </nav>
+    </div>
+  </header>
   <div class="resume-page">
     <header class="resume-hero">
       <div class="hero-copy">
